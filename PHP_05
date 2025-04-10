@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Matrix Pola N x N</title>
+</head>
+<body>
+
+<h2>Matrix Pola N x N</h2>
+
+<form method="post">
+    Masukkan angka (max 10): 
+    <input type="text" name="n">
+    <input type="submit" value="Tampilkan Pola">
+</form>
+
+<pre>
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $n = $_POST["n"];
+
+    if ($n > 0 && $n <= 10) {
+        for ($i = 0; $i < $n; $i++) {
+            for ($j = 0; $j < $n; $j++) {
+                if ($j == $n - $i - 1) {
+                    // Diagonal utama dari kiri bawah ke kanan atas
+                    echo ($n - $i);
+                } else {
+                    echo "*";
+                }
+                echo " ";
+            }
+            echo "\n";
+        }
+    } else {
+        echo "Input harus antara 1 - 10";
+    }
+}
+?>
+</pre>
+
+</body>
+</html>
